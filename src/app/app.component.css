@@ -1,0 +1,40 @@
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #1D2521;
+
+}
+.nav-link, .navbar-brand, .navbar-toggler-icon{
+  color:  #707070;
+  font-weight:  500;
+}
+
+.navbar-brand:hover{
+  color: #069C54;
+}
+.nav-link:hover{
+  color: #069C54;
+}
+.nav-link{
+  transition: .3s;
+}
+
+.navbar-toggler-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.active-link{
+  color: #069C54;
+}
+

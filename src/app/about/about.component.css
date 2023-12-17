@@ -1,0 +1,64 @@
+/*========== ABOUT ==========*/
+.about__data{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+   color: #707070;
+}
+
+.about__description{
+  margin-bottom: 1.5rem;
+}
+
+.about__img{
+  width: 400px;
+  border-radius: .5rem;
+  justify-self: center;
+}
+.bd-container{
+  max-width: 960px;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.section{
+  padding: 4rem 0 2rem;
+}
+
+.section-title, .section-subtitle{
+  text-align: center;
+}
+
+.section-title{
+  font-size: 2.25rem;
+  color:#393939;
+  margin-bottom:  1.5rem;
+}
+
+.section-subtitle{
+  display: block;
+  color:  #069C54;
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+.about__description{
+  margin-bottom: 1.5rem;
+}
+.button{
+  display: inline-block;
+  background-color:  #069C54;
+  color: #FFF;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  transition: .3s;
+}
+.button:hover{
+  background-color: #048654;;
+}
+a{
+  text-decoration: none;
+}
+h1,h2,h3,p,ul{
+  margin: 0;
+ 
+}
