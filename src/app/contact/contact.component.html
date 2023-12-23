@@ -1,1 +1,160 @@
-<p>contact works!</p>
+<div class="container-fluid">
+  <div class="card mx-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-sm-4">
+    <form [formGroup]="form">
+      <div class="card-header">
+        <h4 class="text-center">Contact us</h4>
+      </div>
+
+      <div class="card-body">
+        <div class="form-group">
+          <label>User Name</label>
+          <div class="form-inline">
+            <input class="form-control col-10" formControlName="userName" [ngClass]="{
+                'col-10': true,
+                'form-control': true,
+                'is-invalid': userName?.invalid && userName?.touched
+              }" />
+            <label class="col-2">{{ userNameLength }}</label>
+          </div>
+
+          <div *ngIf="userName?.invalid && userName?.touched">
+            <small class="text-danger" *ngIf="userName?.hasError('required')">
+              اسم المستخدم مطلوب
+            </small>
+            <small class="text-danger" *ngIf="userName?.hasError('minlength')">
+              اسم المستخدم على االقل ثالث خانات
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email" [ngClass]="{
+              'col-10': true,
+              'form-control': true,
+              'is-invalid': email?.invalid && email?.touched
+            }" />
+          <div *ngIf="email?.invalid && email?.touched">
+            <small class="text-danger" *ngIf="email?.hasError('required')">
+              البريد اإللكتروني مطلوب
+            </small>
+            <small class="text-danger" *ngIf="email?.hasError('email')">
+              صيغة البريد اإللكتروني غير صحيحة
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" [ngClass]="{
+              'col-10': true,
+              'form-control': true,
+              'is-invalid': password?.invalid && password?.touched
+            }" />
+          <div *ngIf="password?.invalid && password?.touched">
+            <small class="text-danger" *ngIf="password?.hasError('required')">
+              كلمة االسر مطلوبة
+            </small>
+            <small class="text-danger" *ngIf="password?.hasError('pattern')">
+              بدون مسافات كلمة السر ست خانات ارقام وحروف وعلى االقل حرف واحد
+              كبير
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{
+              'col-10': true,
+              'form-control': true,
+              'is-invalid': confirmPassword?.invalid && confirmPassword?.touched
+            }" />
+          <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+            <small class="text-danger" *ngIf="confirmPassword?.hasError('required')">
+              الحقل مطلوب
+            </small>
+          </div>
+        </div>
+        <label class="pr-2">Gender</label>
+        <div class="form-check form-check-inline">
+          <input formControlName="gender" type="radio" id="maleGender" value="male" [ngClass]="{
+              'form-check-input': true,
+              'is-invalid': gender?.invalid && gender?.touched
+            }" />
+          <label class="form-check-label" for="gender">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="femaleGender" value="fmail" formControlName="gender" [ngClass]="{
+              'form-check-input': true,
+              'is-invalid': gender?.invalid && gender?.touched
+            }" />
+          <label for="femaleGender">Femail</label>
+          <div *ngIf="gender?.invalid && gender?.touched">
+            <small class="text-danger" *ngIf="gender?.hasError('required')">
+              الحقل مطلوب
+            </small>
+          </div>
+        </div>
+
+
+        <fieldset class="scheduler-border" formGroupName="address">
+          <legend class="scheduler-border">Address Informition</legend>
+
+          <div class="form-group">
+            <label>City</label>
+            <input class="form-control" formControlName="city" [ngClass]="{
+              'form-control': true,
+              'is-invalid': city?.invalid && city?.touched
+            }" />
+            <div *ngIf="city?.invalid && city?.touched">
+              <small class="text-danger" *ngIf="city?.hasError('required')">
+                الحقل مطلوب
+              </small>
+            </div>
+          </div>
+
+          <div class=" form-group">
+            <label>State</label>
+            <select class="form-control" formControlName="state" [ngClass]="{
+              'form-control': true,
+              'is-invalid': state?.invalid && state?.touched
+            }">
+              <option selected [ngValue]="null">Choose...</option>
+              <option *ngFor="let item of states" [value]="item">
+                {{ item }}
+              </option>
+            </select>
+            <div *ngIf="state?.invalid && state?.touched">
+              <small class="text-danger" *ngIf="state?.hasError('required')">
+                الحقل مطلوب
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Zip Code</label>
+            <input class="form-control" formControlName="zipCode" [ngClass]="{
+              'form-control': true,
+              'is-invalid': zipCode?.invalid && zipCode?.touched
+            }" />
+            <div *ngIf="zipCode?.invalid && zipCode?.touched">
+              <small class="text-danger" *ngIf="zipCode?.hasError('required')">
+                الحقل مطلوب
+              </small>
+              <small class="text-danger" *ngIf="zipCode?.hasError('pattern')">
+                البريدي البد أن يكون خمس ارقام
+              </small>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn btn-primary" (click)="save()">Save</button>
+        <button class="btn btn-primary mx-3" (click)="laodData()">
+          Load Data
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
